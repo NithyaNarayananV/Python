@@ -1,0 +1,48 @@
+n=int(input())
+#int O,T,F
+print("TOT : ",n)
+O=0
+T=0
+F=0
+if n<3:
+    O=n
+else:
+    if n%2!=0&n%5!=0:
+        n=n-1
+        O=1
+    if n%10==0:#10
+        O=O+1
+        T=2
+        n=n-2*T-1*O
+        F=int(n/5)
+    elif n%5==0:#5
+        F=int((n-5)/5)
+        T=2
+        O=O+1
+    elif (n-2)%10==0:#12,22
+        O=O+1
+        T=3
+        n=n-1-T*2
+        F=int(n/5)
+    elif (n-3)%5==0:#8,18
+        O=O+1
+        T=1
+        n=n-3
+        F=n/5
+    elif n%2==0 and(n-1)%5==0:#2x
+        O=O+2
+        T=2
+        n=n-6
+        F=n/5
+    elif n%2==0:
+        O=O+2
+        T=1
+        n=n-4
+        F=n/5
+    else:
+        print("Error")
+F=int(F)
+print("One : ",O)
+print("Two : ",T)
+print("Five: ",F)
+print("Tot : ",O+T*2+F*5)
