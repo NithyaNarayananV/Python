@@ -1,0 +1,101 @@
+'''
+code for GPA calculation 
+anna university
+2nd year 4th semester
+Electrical and Electronics Engineering
+
+use this code for non commercial purposes only.
+this code belongs to NITHYA NARAYANAN.
+owner of this GITHUB page.
+follow https://github.com/NithyaNarayananV for more Codes
+ 
+ thank you
+
+
+'''
+
+
+
+Department=''
+Semester=0
+C1=[]
+C2=[]
+C3=[]
+C4=[]
+def Title():  
+    print("ANNA UNIVERSITY GPA Calculator")
+    print("    ~~~NITHYA NARAYANAN~~~    ")
+    print(" ")
+    Name=input("Name : ")
+def Dept():
+    Department=input("SELECT Department - (EEE) : ")
+    if Department not in ('EEE'):
+        Dept()
+    return Department
+def Sem():
+    Semester=int(input("Select Semester Number (4): "))
+    if Semester in (1,2,3,4,5,6,7,8):
+        return Semester
+    else:
+        Sem()
+def TOTAL(C1,C2,C3,C4):
+    D=len(C1)+len(C2)*2+len(C3)*3+len(C4)*4
+    Sum=sum(C1)+sum(C2)*2+sum(C3)*3+sum(C4)*4
+    cgpa=Sum/D
+    print("")
+    print(" GPA =  ",cgpa)
+def Con(X):
+    if X== 'O':
+        return 10
+    elif X=='A+':
+        return 9
+    elif X=='A':
+        return 8
+    elif X=='B+':
+        return 7
+    elif X=='B':
+        return 6
+    else :
+        return 0
+def MARK(C1,C2,C3,C4):
+    C1=list(map(Con,C1))
+    C2=list(map(Con,C2))
+    C3=list(map(Con,C3))
+    C4=list(map(Con,C4))
+    TOTAL(C1,C2,C3,C4)
+
+
+def EES4():
+    print(" Enter Grade only - ( 'O' 'A+' 'A' 'B+' 'B' 'RA' )   ")
+    C4.append(input("MA8491 NM     : "))
+    C3.append(input("EE8401 EM- II : "))
+    C3.append(input("EE8402 T&D    : "))
+    C3.append(input("EE8403 M&I    : "))
+    C3.append(input("EE8451 LIC&A  : "))
+    C4.append(input("IC8451 CS     : "))
+    C2.append(input("EE8411 EM-II L: "))
+    C2.append(input("EE8461 LIC&A L: "))
+    C1.append(input("EE8412 TS    L: "))
+    MARK(C1,C2,C3,C4)
+
+
+    
+def EEE(Semester):
+    if Semester==1 or Semester==2 or Semester==3 or Semester==5 or Semester==6 or Semester==7 or Semester==8:
+        print(" NOT AVAILABLE ")
+    elif Semester == 4:
+        #print ("Avalable")
+        EES4()
+Title()
+Department=Dept()
+Semester=Sem()
+EEE(Semester)
+print("      ~~~~END~~~~   ")
+print("   ~~~Thank You~~~~~  ")
+print(" NITHYA NARAYANAN ")
+
+
+
+'''
+with love nithya narayanan
+'''
