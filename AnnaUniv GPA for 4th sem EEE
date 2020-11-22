@@ -13,6 +13,21 @@ follow https://github.com/NithyaNarayananV for more Codes
 
 
 '''
+'''
+code for GPA calculation 
+anna university
+2nd year 4th semester
+Electrical and Electronics Engineering
+
+use this code for non commercial purposes only.
+this code belongs to NITHYA NARAYANAN.
+owner of this GITHUB page.
+follow https://github.com/NithyaNarayananV for more Codes
+ 
+ thank you
+
+
+'''
 
 
 
@@ -76,16 +91,42 @@ def EES4():
     C2.append(input("EE8411 EM-II L: "))
     C2.append(input("EE8461 LIC&A L: "))
     C1.append(input("EE8412 TS    L: "))
+    '''
+    C2.append(input(" BS8161 :"))
+    C3.append(input(" CY8151 :"))
+    C3.append(input(" GE8151 :"))
+    C4.append(input(" GE8152 :"))
+    C2.append(input(" GE8161 :"))
+    C4.append(input(" HS8151 :"))
+    C4.append(input(" MA8151 :"))
+    C3.append(input(" PH8151 :"))
+    '''
+
     MARK(C1,C2,C3,C4)
 
+def EES3():
+    print(" Enter Grade only - ( 'O' 'A+' 'A' 'B+' 'B' 'RA' )   ")
+
+    C4.append(input(" MA8351 :"))
+    C3.append(input(" EE8351 :"))
+    C3.append(input(" EE8391 :"))
+    C3.append(input(" EE8301 :"))
+    C3.append(input(" EC8353 :"))
+    C3.append(input(" ME8792 :"))
+    C2.append(input(" ELE0-L :"))
+    C2.append(input(" EM-1 L :"))
+
+    MARK(C1,C2,C3,C4)
 
     
 def EEE(Semester):
-    if Semester==1 or Semester==2 or Semester==3 or Semester==5 or Semester==6 or Semester==7 or Semester==8:
+    if Semester==1 or Semester==2 or Semester==5 or Semester==6 or Semester==7 or Semester==8:
         print(" NOT AVAILABLE ")
-    elif Semester == 4:
+    elif Semester == 4 :
         #print ("Avalable")
         EES4()
+    elif Semester == 3 :
+        EES3()
 Title()
 Department=Dept()
 Semester=Sem()
@@ -96,6 +137,9 @@ print(" NITHYA NARAYANAN ")
 
 
 
+'''
+with love nithya narayanan
+'''
 '''
 with love nithya narayanan
 '''
