@@ -1,0 +1,313 @@
+'''
+difficult
+0 1 7 3 0 8 0 0 0
+3 0 0 0 4 0 0 0 0
+0 9 0 0 0 1 4 0 0
+1 2 0 0 0 0 0 6 0
+0 0 0 9 0 3 0 0 0
+0 7 0 0 0 0 0 3 1
+0 0 9 2 0 0 0 1 0
+0 0 0 0 6 0 0 0 7
+0 0 0 1 0 5 8 4 0
+
+easy
+
+0 9 8 6 4 1 0 3 7
+0 0 7 8 0 0 9 4 6
+0 3 6 0 0 9 8 2 0
+8 5 9 2 3 6 1 7 0
+0 0 0 0 9 8 3 5 2
+3 0 0 1 0 7 6 9 8
+0 6 0 0 1 0 4 0 5
+9 0 5 7 6 4 0 1 0
+0 0 4 3 8 5 0 0 9
+
+
+easy
+1 0 6 0 7 8 0 3 0
+0 5 7 3 4 9 0 6 2
+2 9 3 6 0 5 0 0 7
+0 0 0 8 0 1 6 0 4
+4 6 1 0 0 0 2 8 9
+5 8 0 0 6 4 3 0 0
+7 3 4 1 9 6 5 0 8
+6 1 8 7 0 2 4 9 3
+0 0 0 0 8 0 0 1 0
+'''
+List=[1,2,3,4,5,6,7,8,9]
+L=[]
+Llist=[]
+Tl=[1,2,3,4,5,6,7,8,9]
+L= [ [0, 1, 7, 3, 0, 8, 0, 0, 0],
+[3, 0, 0, 0, 4, 0, 0, 0, 0],
+[0, 9, 0, 0, 0, 1, 4, 0, 0],
+[1, 2, 0, 0, 0, 0, 0, 6, 0],
+[0, 0, 0, 9, 0, 3, 0, 0, 0],
+[0, 7, 0, 0, 0, 0, 0, 3, 1] ,
+[0, 0, 9, 2, 0, 0, 0, 1, 0] ,
+[0, 0, 0, 0, 6, 0, 0, 0, 7] ,
+[0, 0, 0, 1, 0, 5, 8, 4, 0]
+]
+
+'''
+L=[[1, 0, 6, 0, 7, 8, 0, 3, 0],
+[0, 5, 7, 3, 4, 9, 0, 6, 2],
+[2, 9, 3, 6, 0, 5, 0, 0, 7],
+[0, 0, 0, 8, 0, 1, 6, 0, 4],
+[4, 6, 1, 0, 0, 0, 2, 8, 9],
+[5, 8, 0, 0, 6, 4, 3, 0, 0],
+[7, 3, 4, 1, 9, 6, 5, 0, 8],
+[6, 1, 8, 7, 0, 2, 4, 9, 3],
+[0, 0, 0, 0, 8, 0, 0, 1, 0]]
+Lt=[[1, 0, 6, 0, 7, 8, 0, 3, 0],
+[0, 5, 7, 3, 4, 9, 0, 6, 2],
+[2, 9, 3, 6, 0, 5, 0, 0, 7],
+[0, 0, 0, 8, 0, 1, 6, 0, 4],
+[4, 6, 1, 0, 0, 0, 2, 8, 9],
+[5, 8, 0, 0, 6, 4, 3, 0, 0],
+[7, 3, 4, 1, 9, 6, 5, 0, 8],
+[6, 1, 8, 7, 0, 2, 4, 9, 3],
+[0, 0, 0, 0, 8, 0, 0, 1, 0]]
+
+'''
+
+
+TotCountOfSinglePossibilities=[1]
+zeroCount=0
+
+def removeItem(i,j):
+    #print(i,j,'Removing element - > ',L[i][j])
+    #print(Llist[i][j])
+    #print('i',Llist[i])
+    '''
+    print('------------------final list of possibilities-----------------')
+    for i in range(9):
+        print(Llist[i],"++")
+    print('------------------end list of possibilities-----------------')
+    for i in range(9):
+        print(L[i],"--")
+    print('############################################################################################################')
+    '''
+
+    for k in range(9):
+        if L[i][j] in Llist[i][k]: #removing from the same row
+            #if len(Llist[i][k]) == 1:
+            #    TotCountOfSinglePossibilities[0] = TotCountOfSinglePossibilities[0] -1
+                #print('c--',Llist[i]," c -- ",TotCountOfSinglePossibilities)
+
+            Llist[i][k].remove(L[i][j])
+            if len(Llist[i][k]) == 1 :
+                TotCountOfSinglePossibilities[0] = TotCountOfSinglePossibilities[0] +1
+                #print(Llist[i]," c ++ ",TotCountOfSinglePossibilities)
+
+            
+        #print(Llist[i][k])
+        '''
+        if len(Llist[i][k])==1 and Llist[i][k]!=0 and L[i][j]==0:
+            print("**",Llist[i][k][0])
+            L[i][j]=Llist[i][k][0]
+            removeItem(i,j)'''
+        ''''''
+        if L[i][j] in Llist[k][j]: # removing from the same coloumn
+            #if len(Llist[k][j]) == 1 :
+            # #   TotCountOfSinglePossibilities[0] = TotCountOfSinglePossibilities[0] -1
+
+            Llist[k][j].remove(L[i][j]) 
+            if len(Llist[k][j]) == 1 :
+                TotCountOfSinglePossibilities[0] = TotCountOfSinglePossibilities[0] +1
+                #print(Llist[k]," c ++ ",TotCountOfSinglePossibilities)
+            
+
+        #print(Llist[k][j])
+        
+        '''if len(Llist[k][j])==1 and Llist[k][j]!=0 and L[i][j]==0:
+            print("**",Llist[k][j][0])
+            L[i][j]=Llist[k][j][0]
+            removeItem(i,j)'''
+        
+        
+        if i < 3:
+            ist=0
+            istp=3
+        elif i<6:
+            ist =3
+            istp=6
+        else:
+            ist=6
+            istp=9
+        if j < 3:
+            jst=0
+            jstp=3
+        elif j<6:
+            jst =3
+            jstp=6
+        else:
+            jst=6
+            jstp=9
+        for ii in range(ist,istp):
+            for jj in range(jst,jstp):
+                if L[i][j] in Llist[ii][jj]: #removing from the same row
+                    #if len(Llist[ii][jj]) == 1  :
+                    #    TotCountOfSinglePossibilities[0] = TotCountOfSinglePossibilities[0] -1
+                    Llist[ii][jj].remove(L[i][j])
+                    if len(Llist[ii][jj]) == 1:
+                        TotCountOfSinglePossibilities[0] = TotCountOfSinglePossibilities[0] +1
+                        #print(Llist[ii]," c ++ ",TotCountOfSinglePossibilities)
+                '''if len(Llist[ii][jj])==1 and Llist[ii][jj]!=0 and L[i][j]==0:
+                    L[i][j]=Llist[ii][jj][0]
+                    removeItem(i,j)'''
+    
+print("Hello")
+TotCountOfSinglePossibilities[0]=1
+'''
+for i in range(9):
+    K=[]
+    K=list(map(int,input().split(' ')))
+    L.append(K)'''
+zeroCount0=0
+for i in range(9):
+    zeroCount0 = zeroCount0+ L[i].count(0)
+    print(i,L[i],"Start" , zeroCount0)
+print('======================')
+for i in range(9):
+    print(L[i])
+for i in range(9):
+    k=[]
+    for j in range(9):    
+        if L[i][j]!=0:
+            k.append([])
+        else:
+            k.append([1,2,3,4,5,6,7,8,9])
+    Llist.append(k)
+    #print(k)
+print('============analsys=========================================')
+#if L[i][j] in Llist[i][k]:
+#Llist[0][0].remove(1)
+#'''
+for i in range(9):
+    for j in range(9):
+        if L[i][j]!=0:
+            removeItem(i,j)
+        else:
+            zeroCount = zeroCount+ 1
+            ''''''
+            '''print('------------------final list of possibilities-----------------')
+            for l in range(9):
+                print(Llist[l])
+            print('------------------end list of possibilities-----------------')
+            print(Llist[i],"check")'''
+#'''
+print(" 172 ")
+iii=0
+while TotCountOfSinglePossibilities[0]>0 and zeroCount>0:
+    print("    0000000000     ",iii,"   000000000000000")
+    iii=iii+1
+    for i in range(9):
+        for j in range(9):
+            if L[i][j]==0 and len(Llist[i][j])==1:
+                L[i][j]=Llist[i][j][0]
+                zeroCount = zeroCount-1
+                #Llist[i][j].remove(Llist[i][j][0])
+                removeItem(i,j)
+                
+
+                TotCountOfSinglePossibilities[0] = TotCountOfSinglePossibilities[0] -1
+
+
+    print('------------------final list of possibilities-----------------')
+    for i in range(9):
+        for j in range(9):
+            for k in Llist[i][j]:
+                print(k,end='')
+            if len(Llist[i][j]) == 0:
+                print(0,end='')
+            print(',',end=' ')
+        print('\n')
+
+    print('------------------end list of possibilities-----------------')
+    zeroCount1=0
+    for i in range(9):
+        zeroCount1 = zeroCount1+ L[i].count(0)
+        print(i,L[i],"NEW" , zeroCount1)
+    zeroOld=zeroCount0
+    if zeroCount1 == zeroOld:
+        zeroOld = zeroCount1
+        break
+    if iii > 20:
+        break
+if zeroCount >0:
+    print('More boxes shoud be numbered. Sudoku can not be solved.')
+elif zeroCount ==0:
+    print('Woah ...! Done uh!')
+
+'''
+
+Actual working starts
+
+'''
+print("Starting of Coding with backtracking   only with possible list")
+
+Lindex = []
+Lposs =  []
+
+for i in range(9):
+    Lindex.append([0,0,0,0,0,0,0,0,0])
+    Lposs.append([0,0,0,0,0,0,0,0,0])
+'''for i in range(9):
+    print(Lindex[i])
+print("==================================================")
+
+for i in range(9):
+    print(Lposs[i])
+print("==================================================")
+
+for i in range(9):
+    print(L[i])'''
+print("==================================================")
+for i in range(9):
+    for j in range(9):
+        if L[i][j]==0:
+            print('i , j = ',i,j)
+            flag1=0
+            for k in range(len(Llist[i][j])):
+                tempItem = Llist[i][j][k]
+                flag = 0
+                if tempItem in Lposs[i][:j]:
+                    flag = 1
+                else:
+                    for ll in range(i+1):
+                        if L[ll][j]==0:
+                        #print(ll,j,k)
+                        #print(Llist[ll])
+                            if k>len(Llist[ll][j]):
+                                #flag=1
+                                break
+                            elif tempItem == Lposs[ll][j]:
+                                flag = 1
+                                break
+                        
+                if flag ==0:
+                    print(i,j)
+                    Lposs[i][j]=Llist[i][j][k]
+                    Lindex[i][j]=k
+                    break
+                    
+                else:
+                    print("same seen")
+                    print('i = ',i,' j= ',j)
+                    if L[i][j]==0:
+                        Lposs[i][j]= '*'
+                    print(Llist[i][j],Lposs[i][j],L[i][j])
+        else:
+            Lindex[i][j]=-1
+for i in range(9):
+    print(Llist[i])
+print('+++++')
+for i in range(9):
+    print(Lindex[i])
+print("====")
+for i in range(9):
+    print(Lposs[i])
+
+
+
