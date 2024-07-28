@@ -1,0 +1,44 @@
+'''
+Find the best order to study.
+[[1,0],[2,3,4],[3,1],[4,0,3],[5,7],[7,2]]
+* The 1st character in sub-arrays is the subject and other values are the prerequisites for that subject.
+EG 
+[1 -> 0]
+[2 -> 3,4]
+[3 -> 1]
+
+* we can have more than 1 prerequisite for one subject. 
+to study the subject, we need to study the prerequisite first.
+so find the best way to study all the subjects.
+
+'''
+
+#L=[[5,3],[4,5],[3,2],[2,1,0]]
+L=[[1,0],[2,3,4],[3,1],[4,0,3],[5,7],[7,2]]
+# 0 1 3 2 4  
+# 4 2 3 1 0
+Order=[]
+for i in L:
+    flag = 0
+    if len(i)>1:
+        for j in i[1:]: # for Each element in one cell 
+            if j in Order:
+                flag=1
+                break
+        if flag==0:
+            for j in i[::-1]:
+                Order[1:] = Order[:]
+                #print(Order)
+                if len(Order)==0:
+                    Order.append(j)
+                else:
+                    Order[0]=j   
+                
+    if flag==1 and i[0] not in Order:
+        print("FLAG")
+        OrderIndex = Order.index(i[1])
+        PreIndex = L.index(i)
+        Order[1:] = Order[:]
+        Order[0]=i[0]
+    print(Order)
+print(Order[::-1])
